@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-import GQLLogo from '../public/LOGO.svg'
+import GQLLogo from '../../public/LOGO.svg'
 import Image from 'next/image'
 
 const easing = [0.17, 0.67, 0.84, 0.66]

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import PreviewImage from '../public/GQLevatedWordMark.png'
+import PreviewImage from '../../public/GQLevatedWordMark.png'
 import styles from '../styles/HomeContent.module.css'
 import Hero from '../components/Hero'
 import LearnFeatures from '../components/LearnFeatures'

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
-import PreviewImage from '../public/GQLevatedWordMark.png'
+import PreviewImage from '../../public/GQLevatedWordMark.png'
 
 import Team from '../components/Team'
 

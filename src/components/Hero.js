@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Spacer } from '@nextui-org/react'
 
 import styles from '../styles/Hero.module.css'
-import GQLLogo from '../public/LOGO.svg'
+import GQLLogo from '../../public/LOGO.svg'
 
 const easing = [0.17, 0.67, 0.84, 0.66]
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import GQLevatedLogo from '../public/GQL_ASSET.svg'
+import GQLevatedLogo from '../../public/GQL_ASSET.svg'
 import styles from '../styles/Nav.module.css'
 
 function GQLevated() {
