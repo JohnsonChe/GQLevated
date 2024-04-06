@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Input, Spacer, Button } from '@nextui-org/react'
 import { useDispatch, useSelector } from 'react-redux'
 import CryptoJS from 'crypto-js'
+import content from '../content/en.json'
 
 import {
   setQueries,
@@ -12,9 +13,10 @@ import {
   setShowDBInfo
 } from '../features/demoSlice'
 import styles from '../styles/DbUri.module.css'
-import secretKey from '../server/secretKey'
+import secretKey from '../../server/secretKey'
 
 function DbInput({ fetchData }) {
+  const demoContent = content.demo
   const uriField = useRef()
   const isError = useSelector((state) => state.demo.isError)
   const errorMsg = useSelector((state) => state.demo.errorMsg)
@@ -30,7 +32,7 @@ function DbInput({ fetchData }) {
       const encryptedURL = CryptoJS.AES.encrypt(URILink, secretKey).toString() //Encrypting user-inputted DB URI string
       fetchData(encryptedURL, fetchEndpoint)
     } else {
-      dispatch(setErrorMsg('Please enter a valid PostgreSQL or MongoDB URI'))
+      dispatch(setErrorMsg(demoContent.errorMessage))
       dispatch(setIsError(true))
     }
   }
@@ -51,13 +53,13 @@ function DbInput({ fetchData }) {
   return (
     <>
       <div className={styles.uriString}>
-        <h2>Generate your GraphQL code</h2>
+        <h2>{demoContent.title}</h2>
         <Spacer y={1.5} />
         <Input
           clearable
           bordered
           width='20rem'
-          labelPlaceholder='PostgreSQL or MongoDB URI'
+          labelPlaceholder={demoContent.placeholder}
           initialValue=''
           ref={uriField}
           onKeyDown={(e) => {
@@ -80,12 +82,12 @@ function DbInput({ fetchData }) {
             dispatch(setErrorMsg(''))
             handleClick(e)
           }}>
-          Generate
+          {content.Button.generate}
         </Button>
       </div>
 
       <div className={styles.sampledb}>
-        <h2>See how it works with our Sample Database </h2>
+        <h2>{demoContent.sample}</h2>
         <Spacer y={1.5} />
         <Button
           auto
@@ -105,7 +107,7 @@ function DbInput({ fetchData }) {
               dispatch(setShowDBInfo(true))
             }, 700)
           }}>
-          Sample Database
+          {content.Button.sampleDatabase}
         </Button>
       </div>
     </>

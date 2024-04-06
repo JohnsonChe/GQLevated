@@ -93,7 +93,7 @@ function Demo() {
         <meta property='og:title' content='GQLevated' key='title' />
         <meta property='og:image' content={PreviewImage} key='ogimage' />
       </Head>
-      // Create a component
+
       {showURIPanel ? (
         <DbUri
           fetchData={fetchData}
